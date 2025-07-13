@@ -1,97 +1,155 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Emmari Brown | IT Support Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmari Brown | IT Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Dark mode toggle logic
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    };
     document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
       });
     });
   </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-100 font-sans leading-relaxed tracking-wide">
+<body class="bg-gray-900 text-gray-100 font-sans text-sm">
 
-  <header class="bg-blue-700 dark:bg-blue-900 text-white p-6 shadow">
-    <div class="max-w-4xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Emmari Brown</h1>
-      <button id="theme-toggle" class="bg-white text-blue-700 px-3 py-1 rounded hover:bg-gray-200 transition">
-        Toggle Theme
-      </button>
+  <!-- Header -->
+  <header class="p-6 bg-blue-900 shadow sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <h1 class="text-lg font-semibold">Emmari Brown</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="#about" class="hover:text-blue-400">About</a>
+        <a href="#experience" class="hover:text-blue-400">Experience</a>
+        <a href="#skills" class="hover:text-blue-400">Skills</a>
+        <a href="#projects" class="hover:text-blue-400">Projects</a>
+        <a href="#resume" class="hover:text-blue-400">Resume</a>
+        <a href="#certs" class="hover:text-blue-400">Certifications</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6">
-    <!-- Intro -->
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">About Me</h2>
+  <!-- Hero Quote -->
+  <section class="bg-gray-800 text-center py-10 px-4">
+    <blockquote class="text-lg italic text-gray-300 max-w-2xl mx-auto">
+      “The most important thing is to try and inspire people so that they can be great in whatever they want to do.”<br/>
+      <span class="block text-sm mt-2 text-blue-400">— Kobe Bryant</span>
+    </blockquote>
+  </section>
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-16">
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">About Me</h2>
       <p>
-        I'm a passionate and motivated IT support specialist currently working at <strong>ECL Gaming</strong>. I provide technical phone and remote support, financial auditing, and network diagnostics for 47 locations. I’m continuously learning and growing my skills through real-world experience and formal education in IT fundamentals.
+        I'm a passionate and driven IT Support Specialist currently supporting 47 gaming locations at ECL Gaming. I combine technical troubleshooting, auditing, and remote support with a commitment to learning and growing in the tech space.
       </p>
     </section>
 
     <!-- Experience -->
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">Professional Experience</h2>
-
-      <div class="mb-4">
-        <h3 class="font-semibold text-lg">Operations Support Coordinator – ECL Gaming</h3>
-        <p class="text-sm text-gray-400">June 2025 – Present</p>
-        <ul class="list-disc pl-5 mt-1">
-          <li>Deliver remote and phone-based IT support across 47 gaming locations.</li>
-          <li>Use tools like NinjaOne, VNC Connect, ITGlue, and MTMS for troubleshooting and device management.</li>
-          <li>Conduct daily financial audits and reporting to ensure location integrity.</li>
-          <li>Coordinate with cross-functional teams to resolve escalated IT issues.</li>
-        </ul>
-      </div>
-
-      <div class="mb-4">
-        <h3 class="font-semibold text-lg">Sales Consultant – CarMax</h3>
-        <p class="text-sm text-gray-400">2023 – 2024</p>
-        <ul class="list-disc pl-5 mt-1">
-          <li>Built client relationships through clear communication and solutions-based sales.</li>
-          <li>Developed early troubleshooting skills for in-store systems and customer devices.</li>
-        </ul>
+    <section id="experience">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Experience</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="font-semibold">Operations Support Coordinator – ECL Gaming</h3>
+          <p class="text-gray-400 text-sm">2025 – Present</p>
+          <ul class="list-disc pl-5 mt-1">
+            <li>Remote support for 47 locations using NinjaOne, VNC Connect, MTMS, ITGlue</li>
+            <li>Daily auditing, escalation handling, and IT phone support</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold">Sales Consultant – CarMax</h3>
+          <p class="text-gray-400 text-sm">2023 – 2024</p>
+          <ul class="list-disc pl-5 mt-1">
+            <li>Customer engagement, problem solving, and early troubleshooting exposure</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Skills -->
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">Technical Skills</h2>
-      <ul class="list-disc pl-5">
-        <li>Operating Systems: Windows, macOS, basic Linux</li>
-        <li>Remote Support Tools: NinjaOne, VNC Connect, ITGlue, MTMS</li>
-        <li>IT Tasks: Device troubleshooting, user support, basic networking, auditing</li>
-        <li>Soft Skills: Problem-solving, communication, multitasking, documentation</li>
+    <section id="skills">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Technical Skills</h2>
+      <ul class="list-disc pl-5 grid grid-cols-2 gap-y-2">
+        <li>Windows, macOS, Linux (basic)</li>
+        <li>NinjaOne, VNC Connect, MTMS, ITGlue</li>
+        <li>Remote device troubleshooting</li>
+        <li>Financial auditing/reporting</li>
+        <li>Documentation and support escalation</li>
+        <li>Customer service & multitasking</li>
       </ul>
     </section>
 
-    <!-- Education -->
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2">Education & Certifications</h2>
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Projects</h2>
       <ul class="list-disc pl-5">
-        <li>Coursera – Google IT Support Professional Certificate (in progress)</li>
-        <li>High School Diploma – Heritage High School (Class of 2019)</li>
+        <li><strong>Customer Support Chatbot</strong> – Built for Discord, SMS, and websites to automate FAQs and client interaction.</li>
+        <li>Portfolio website (this site!) built using HTML, Tailwind, and GitHub Pages.</li>
+        <li>Coming soon: IT troubleshooting toolkit with scripts & documentation.</li>
+      </ul>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Resume</h2>
+      <a href="resume.pdf" download class="inline-block mt-2 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+        Download My Resume
+      </a>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Certifications</h2>
+      <ul class="list-disc pl-5">
+        <li>Google IT Support Certificate (in progress)</li>
       </ul>
     </section>
 
     <!-- Contact -->
-    <section>
-      <h2 class="text-xl font-semibold mb-2">Contact Me</h2>
-      <p>Email: <a class="text-blue-400 underline" href="mailto:emmaribrown@gmail.com">emmaribrown@gmail.com</a></p>
-      <p>Phone: <a class="text-blue-400 underline" href="tel:3606082892">(360) 608-2892</a></p>
+    <section id="contact">
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Contact Me</h2>
+      <p>Email: <a href="mailto:emmaribrown@gmail.com" class="text-blue-400 underline">emmaribrown@gmail.com</a></p>
+      <p>Phone: <a href="tel:3606082892" class="text-blue-400 underline">(360) 608-2892</a></p>
       <p>Location: Henderson, NV</p>
+    </section>
+
+    <!-- Social Media -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2 text-blue-400">Social Media</h2>
+      <ul class="flex gap-4">
+        <li><a href="#" class="hover:text-blue-400">LinkedIn</a></li>
+        <li><a href="#" class="hover:text-blue-400">GitHub</a></li>
+        <li><a href="#" class="hover:text-blue-400">Discord</a></li>
+      </ul>
     </section>
   </main>
 
-  <footer class="bg-gray-800 text-gray-400 p-4 text-center text-sm mt-10">
-    &copy; 2025 Emmari Brown. All rights reserved.
+  <footer class="bg-gray-800 text-gray-400 p-4 text-center text-xs">
+    &copy; 2025 Emmari Brown. Built with passion and purpose.
   </footer>
+
 </body>
 </html>
